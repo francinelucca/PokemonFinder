@@ -1,17 +1,16 @@
 <div class="clearfix grid">
     <div *ngFor="let pokemon of pokemons">
-        <a routerLink="/detail/{{pokemon.url.slice(34,-1)}}" 
-           class="col-1-10">
-           <div class="redCircle">
-           </div>
-           <div class="pokemon">
+        <div class="col-1-5">
+           <a class="pokemon"
+           routerLink="/detail/{{pokemon.url.slice(34,-1)}}">
+            <img src="https://pokeres.bastionbot.org/images/pokemon/{{pokemon.url.slice(34,-1)}}.png"
+                alt="Image not found" onerror="this.onerror=null;this.src='../assets/img/pokeball.png';"
+                height="250"/>
             <h3>
              {{pokemon.name}}
              </h3>
-           </div>
-           <div class="whiteCircle">
-           </div>
-        </a>
+            </a>
+        </div>
     </div>
 </div>
 

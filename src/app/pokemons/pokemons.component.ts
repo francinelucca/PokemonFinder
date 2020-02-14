@@ -11,7 +11,7 @@ import { Pokemon } from '../pokemon';
 export class PokemonsComponent implements OnInit {
   pokemons: Pokemon[];
   currentOffSet= 0;
-  limitPerPage= 90;
+  limitPerPage= 20;
   hasPrevious: boolean;
   hasNext: boolean;
 

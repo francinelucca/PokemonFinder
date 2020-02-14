@@ -1,33 +1,83 @@
-<div *ngIf="pokemon">
-    <h1>{{pokemon.name | uppercase}} Details</h1>
+<div *ngIf="pokemon"
+      class="pokemon-detail">
+    <h2 class="centered">{{pokemon.name | uppercase}} Details</h2>
     <img src={{pokemon.sprites.front_default}} 
          height="300"
-         *ngIf="pokemon.sprites.front_default"/>
-    <h3>Id: {{pokemon.id}}</h3>
-    <h3>Weight: {{pokemon.weight}}</h3>
-    <h3>Height: {{pokemon.height}}</h3>
-    <h3>Species: {{pokemon.species.name}}</h3>
-    <h3>Experience: {{pokemon.base_experience}}</h3>
-    <h3>Types: <span *ngFor="let type of pokemon.types">
-        {{type.type.name}}
-    </span></h3>
-    <h3>Stats:</h3>
-    <ul>
-        <li *ngFor="let stat of pokemon.stats">
-            <h4>{{stat.stat.name}}:<span> {{stat.base_stat}}</span>
-            </h4> 
-        </li>
-    </ul>
-    <h3>Abilities:</h3>
-    <ul>
-        <li *ngFor="let ability of pokemon.abilities">
-            {{ability.ability.name}}
-        </li>
-    </ul>
-    <h3>Moves:</h3>
-    <ul>
-        <li *ngFor="let move of pokemon.moves">
-            {{move.move.name}}
-        </li>
-    </ul>
+         *ngIf="pokemon.sprites.front_default"
+         class="centered"/>
+    <div class="generalInfo">
+        <ul>
+            <li>
+                <div>
+                    <h3>Id</h3>
+                    <span>{{pokemon.id}}</span>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <h3>Weight</h3>
+                    <span>{{pokemon.weight}}</span>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <h3>Height</h3>
+                    <span>{{pokemon.height}}</span>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <h3>Species</h3>
+                    <span>{{pokemon.species.name | uppercase}}</span>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <h3>Experience</h3>
+                    <span>{{pokemon.base_experience}}</span>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <h3>Types</h3> 
+                    <span>
+                        {{pokemon.types | joinByProperty: ' , ':['type','name'] | uppercase}}
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <h3>Abilities:</h3>
+                    <span>
+                        {{pokemon.abilities | joinByProperty: ' , ':['ability','name'] | uppercase}}
+                    </span>
+                </div>
+            </li>
+        </ul>        
+    </div>
+    <div class="stats clearfix centered">
+        <h3>Stats:</h3>
+        <ul>
+            <li *ngFor="let stat of pokemon.stats">
+                <div>
+                    <h4>{{stat.stat.name | uppercase}}</h4> 
+                    <span> {{stat.base_stat}}</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="moves clearfix centered">
+        <h3>Moves:</h3>
+        <ul class="centered">
+            <li *ngFor="let move of pokemon.moves">
+                <div>
+                    <h5>
+                        {{move.move.name | uppercase}}
+                    </h5>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <button (click)="goBack()"
+            class="centered">Go Back</button>
 </div>

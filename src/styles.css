@@ -1,4 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-    background-color: lightgray;
+    background-color: white;
+    margin: 0 200px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+button {
+    border-radius: 4px;
+    border: none;
+    background-color: #ff0000;
+    padding: 5px 10px;
+    margin: 20px;
+    cursor: pointer;
+    font-family: Arial;
+    color: black;
+    font-weight: bold;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
 }
